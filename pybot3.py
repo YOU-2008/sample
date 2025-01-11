@@ -15,11 +15,15 @@ for O in lines:
     key = word_list[0]
     response = word_list[1]
     bot_dict[key] = response
+print(bot_dict)
 
-def pybot(input_text):
+def pybot(command):
     try:
-        command = input("ZGTパクリbot>") 
         response = ""
+        for YOU in bot_dict:
+            if YOU in command:
+                response = bot_dict[YOU]
+                break
         if "サイコロ" in command:
             response = dice_command(command)
         if "選ぶ" in command:
@@ -36,18 +40,15 @@ def pybot(input_text):
             response = weekday_command(command)
         if "天気" in command:
             response = weather_command()
-        for YOU in bot_dict:
-            if YOU in command:
-                response = bot_dict[YOU]
-                break
-            if not command:
-                response = "何ヲ言ッテルカ、ワカラナイ"
+        if not response:
+            response = "何ヲ言ッテルカ、ワカラナイ"
         if "平成" in command:
             response = heisei_command(command)
-        print(response)
+        return response
 #        if "さようなら" in command:
 #            break
     except Exception as e:
         print("予期セヌエラーガ発生シマシタ")
         print("※ 種類:", type(e))
         print("※ 内容:", e)
+        return response
