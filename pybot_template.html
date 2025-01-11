@@ -1,17 +1,15 @@
 <html>
     <body>
-       <form method="post" action="/hello">
-         <h1>  
-             Pybot Webアプリケーション
-         </h1>    
+        <form method="post" action="/hello">
+           <h1>Pybot Webアプリケーション</h1>
            <label for="input_text">メッセージを入力してください　　　　</label>
            <input type="text" name="input_text">
            <input type="submit" value="送信">  
         </form>
-       <br>
-      <ul>
-      <li>入力されたメッセージ : {{text}}</li>
-      <li>Pybotからの応答メッセージ : {{response}}</li>
-      </ul>
+        <br>
+        <ul>
+           <li>入力されたメッセージ : {{text}}</li>
+           <li>Pybotからの応答メッセージ : {{response}}</li>
+        </ul>
     </body>
 </html>
